@@ -8,7 +8,7 @@ class CreateArticles < ActiveRecord::Migration[5.2]
       t.integer :status, index: true
       t.string :metadata
       t.datetime :published_at, index: true
-      t.references :user, foreign_key: true
+      t.references :admin, foreign_key: true
       t.integer :click_count
       t.json :tags
       t.string :searcher

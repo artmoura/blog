@@ -1,37 +1,42 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Articles</h1>
+<div class="s-content">
+    <div class="masonry-wrap">
+        <div class="masonry">
+            <div class="grid-sizer"></div>
+            <% @articles.each do |article| %>
+              <article class="masonry__brick entry format-standard ">
+                  <% if article.highlight_image.url %>
+                    <div class="entry__thumb">
+                        <a href="single-standard.html" class="entry__thumb-link">
+                            <%= image_tag article.highlight_image_url %> 
+                        </a>
+                    </div>
+                  <% end %>
+  
+                  <div class="entry__text">
+                      <div class="entry__header">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Highlight image</th>
-      <th>Highlight</th>
-      <th>User</th>
-      <th>Click count</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.content %></td>
-        <td><%= article.highlight_image %></td>
-        <td><%= article.highlight %></td>
-        <td><%= article.user %></td>
-        <td><%= article.click_count %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Article', new_article_path %>
+                          <h2 class="entry__title"><%= link_to article.title, "/#{article.metadata}" %></h2>
+                          <div class="entry__meta">
+                              <span class="entry__meta-cat">
+                                  <%= article.category_id %>
+                              </span>
+                              
+                              <span class="entry__meta-date">
+                                  <a href="single-standard.html"><%= I18n.l(article.published_at || Time.now, format: :long) %></a>
+                              </span>
+                          </div>
+                          
+                      </div>
+                      <div class="entry__excerpt max-length">
+                        <%= raw article.highlight %>
+                      </div>
+                      <div class="entry__excerpt max-length">
+                        <%= link_to "Ver mais", "/#{article.metadata}" %>
+                      </div>
+                  </div>
+              </article>
+            <% end %>
+        </div>
+    </div>
+</div>

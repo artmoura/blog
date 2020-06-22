@@ -37,13 +37,18 @@
 }
 
 .menu a {
-  margin: 10px
+  margin: 10px;
 }
 .menu a i {
   color: black;
 }
 
-@media screen and (max-width:993px) {
+a:hover {
+  color: black !important;
+  background-color: white;
+}
+
+@media screen and (max-width: 993px) {
   .menu {
     display: inline;
   }
@@ -51,4 +56,26 @@
     padding-top: 1rem;
     padding-left: 0;
   }
+}
+
+.login-container {
+  font-size: 10px;
+}
+
+.login-container .row {
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-login input {
+  height: 30px !important;
+  line-height: 30px !important;
+}
+
+.max-length {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }

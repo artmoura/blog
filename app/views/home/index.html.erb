@@ -6,57 +6,28 @@
 				<li><div class="user-view">
 				<%= link_to "ARTHUR MOURA", "/", class: "home-title" %>
 				</div></li>
-				<li class="current"><%= link_to "Home", "/" %></li>
-				<li><%= link_to "Teologia", "/teologia" %></li>
-				<li><%= link_to "Estilo de vida", "/estilo_de_vida" %></li>
-				<li><%= link_to "Sobre", "/sobre" %></li>
+				<% if current_admin %>
+					<li><%= link_to "Admin", "/admin" %> </li>
+				<% end %>
+				<li class=<%= current_page?("/") ? "active" : "" %>><%= link_to "Home", "/" %></li>
+				<li class=<%= current_page?("/teologia") ? "active" : "" %>><%= link_to "Teologia", "/teologia" %></li>
+				<li class=<%= current_page?("/estilo_de_vida") ? "active" : "" %>><%= link_to "Estilo de vida", "/estilo_de_vida" %></li>
+				<li class=<%= current_page?("sobre") ? "active" : "" %>><%= link_to "Sobre", "/sobre" %></li>
 				<li>
 						<a href="https://facebook.com/arthurjmoura" target="_blank">
 								<%= fa_icon "facebook-square", class: "fa-2x favi-padding" %>
 						</a>
+				</li>
+				<li>
 						<a href="https://twitter.com/arthurjm95" target="_blank">
 								<%= fa_icon "twitter", class: "fa-2x favi-padding" %>
 						</a>
+				</li>
+				<li>
 						<a href="https://instagram.com/arthurjmoura" target="_blank">
 								<%= fa_icon "instagram", class: "fa-2x favi-padding" %>
 						</a>
 				</li>   
 		</ul>
-		<div class="s-content">
-				<div class="masonry-wrap">
-						<div class="masonry">
-								<div class="grid-sizer"></div>
-								<% @articles.each do |article| %>
-									<article class="masonry__brick entry format-standard ">
-													
-											<div class="entry__thumb">
-													<a href="single-standard.html" class="entry__thumb-link">
-															<%= image_tag article.highlight_image_url %> 
-													</a>
-											</div>
-			
-											<div class="entry__text">
-													<div class="entry__header">
-	
-															<h2 class="entry__title"><a href="single-standard.html"><%= article.title %></a></h2>
-															<div class="entry__meta">
-																	<span class="entry__meta-cat">
-																			<a href="category.html"><%= article.category_id %></a>
-																	</span>
-																	
-																	<span class="entry__meta-date">
-																			<a href="single-standard.html"><%= I18n.l(article.published_at, format: :long) %></a>
-																	</span>
-															</div>
-															
-													</div>
-													<div class="entry__excerpt">
-														<%= raw article.highlight %>
-													</div>
-											</div>
-									</article>
-								<% end %>
-						</div>
-				</div>
-		</div>
+		<%= render template: "articles/index" %>
 </div> 
