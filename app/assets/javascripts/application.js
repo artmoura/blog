@@ -12,5 +12,21 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery
+//= require jquery_ujs
+//= require modernizr.js
+//= require materialize-sprockets
+//= require main.js
+//= require plugins.js
 //= require turbolinks
 //= require_tree .
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+        

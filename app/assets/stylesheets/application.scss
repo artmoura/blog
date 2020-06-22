@@ -1,0 +1,54 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require base.css 
+*= require main.css 
+*= require vendor.css 
+*= require font-awesome
+*= require_self
+*/
+@import "materialize";
+
+.favi-padding {
+  padding: 0.4em 0em 0em;
+}
+
+.home-title {
+  font-size: medium;
+}
+.home-title:hover {
+  color: white;
+}
+
+.menu {
+  display: none;
+  // background-color: #212121;
+  padding: 1em 0.4em 0.4em;
+}
+
+.menu a {
+  margin: 10px
+}
+.menu a i {
+  color: black;
+}
+
+@media screen and (max-width:993px) {
+  .menu {
+    display: inline;
+  }
+  .s-content {
+    padding-top: 1rem;
+    padding-left: 0;
+  }
+}
