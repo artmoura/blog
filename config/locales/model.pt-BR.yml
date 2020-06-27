@@ -1,0 +1,55 @@
+pt-BR:
+  activerecord:
+    models:
+      admin:
+        one: Administrador
+        other: Administradores
+      article:
+        one: Artigo
+        other: Artigos
+      category:
+        one: Categoria
+        other: Categorias
+      comment:
+        one: Comentário
+        other: Comentários
+    attributes:
+      admin:
+        email: Email
+        password: Senha
+        password_confirmation: Confirmação de senha
+        name: Nome
+        remark: Observaçōes
+        article: Artigo
+        articles: Artigos
+        created_at: Criado em
+        updated_at: Atualizado em
+      article:
+        title: Título
+        content: Conteúdo
+        highlight_image: Imagem
+        highlight: Chamada
+        status: Status
+        metadata: Metadata
+        published_at: Publicado em
+        admin: Escrito por
+        click_count: Quantidade de cliques
+        tags: Tags
+        searcher: Buscador
+        category: Categoria
+        comments: comentarios
+        created_at: Criado em
+        updated_at: Atualizado em
+      category:
+        name: Nome
+        articles: Artigos
+        created_at: Criado em
+        updated_at: Atualizado em
+      comment:
+        name: Nome
+        article: Artigo
+        content: Conteúdo
+        comment: Comentário
+        comments: Comentários
+        created_at: Criado em
+        updated_at: Atualizado em

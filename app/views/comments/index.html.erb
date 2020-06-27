@@ -1,33 +1,99 @@
-<p id="notice"><%= notice %></p>
+<% if @article&.comments&.size > 0 %>
+  <div class="comments-wrap">
+    <div id="comments" class="column large-12">
 
-<h1>Comments</h1>
+      <h3 class="h2"><%= @article.comments.size %> Comentários</h3>
+      <ol class="commentlist">
+        <% @article.comments.each do |comment| %>
+        <li class="thread-alt depth-1 comment">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th>Article</th>
-      <th>Comment</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <div class="comment__content">
 
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.name %></td>
-        <td><%= comment.content %></td>
-        <td><%= comment.article %></td>
-        <td><%= comment.comment %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <div class="comment__info">
+              <div class="comment__author"><%= comment.name %></div>
 
-<br>
+              <div class="comment__meta">
+                <div class="comment__time"><%= I18n.l(comment.created_at, format: :short) %></div>
+              </div>
+            </div>
 
-<%= link_to 'New Comment', new_comment_path %>
+            <div class="comment__text">
+              <%= raw comment.content %>
+            </div>
+
+          </div>
+          <% if comment.comments.size > 0 %>
+          <ul class="children">
+
+            <li class="depth-2 comment">
+
+              <div class="comment__avatar">
+                <img class="avatar" src="images/avatars/user-03.jpg" alt="" width="50" height="50">
+              </div>
+
+              <div class="comment__content">
+
+                <div class="comment__info">
+                  <div class="comment__author">Kakashi Hatake</div>
+
+                  <div class="comment__meta">
+                    <div class="comment__time">April 29, 2019</div>
+                    <div class="comment__reply">
+                      <a class="comment-reply-link" href="#0">Reply</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="comment__text">
+                  <p>Duis sed odio sit amet nibh vulputate
+                    cursus a sit amet mauris. Morbi accumsan ipsum velit. Duis sed odio sit amet nibh vulputate
+                    cursus a sit amet mauris</p>
+                </div>
+
+              </div>
+
+              <ul class="children">
+
+                <li class="depth-3 comment">
+
+                  <div class="comment__avatar">
+                    <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50" height="50">
+                  </div>
+
+                  <div class="comment__content">
+
+                    <div class="comment__info">
+                      <div class="comment__author">John Doe</div>
+
+                      <div class="comment__meta">
+                        <div class="comment__time">April 29, 2019</div>
+                        <div class="comment__reply">
+                          <a class="comment-reply-link" href="#0">Reply</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="comment__text">
+                      <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est
+                        etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
+                    </div>
+
+                  </div>
+
+                </li>
+
+              </ul>
+
+            </li>
+
+          </ul>
+          <% end %>
+
+        </li>
+        <% end %>
+      </ol>
+
+
+    </div>
+  </div>
+<% end %>

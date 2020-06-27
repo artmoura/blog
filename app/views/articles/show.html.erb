@@ -1,34 +1,57 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+        <div class="s-content content">
+            <main class="row content__page">
+                
+                <article class="column large-full entry format-standard">
+                    <% if @article.highlight_image&.url %>
+                      <div class="media-wrap entry__media">
+                          <div class="entry__post-thumb">
+                              <img src=<%= @article.highlight_image&.url %> sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                          </div>
+                      </div>
+                    <% end %>
 
-<p>
-  <strong>Content:</strong>
-  <%= @article.content %>
-</p>
+                    <div class="content__page-header entry__header">
+                        <h1 class="display-1 entry__title">
+                        <%= @article.title %>
+                        </h1>
+                        <ul class="entry__header-meta">
+                            <li class="author">Por <a href="#0"><%= @article.admin ? @article.admin.name : "Anonimo" %></a></li>
+                            <li class="date"><%= I18n.l((@article.published_at || DateTime.now), format: :long) %></li>
+                            <li class="cat-links">
+                                <%= link_to @article.category.name, "/#{@article.category.name}" %>
+                            </li>
+                        </ul>
+                    </div> 
 
-<p>
-  <strong>Highlight image:</strong>
-  <%= @article.highlight_image %>
-</p>
+                    <div class="entry__content">
+                        <%= raw @article.content %>
+                    </div> 
+                    <% if @options["previous"] || @options["next"] %>
+                      <div class="entry__pagenav">
+                          <div class="entry__nav">
+                              <% if @options["previous"] %>
+                                <div class="entry__prev">
+                                    <a href="#0" rel="prev">
+                                        <span>Anterior</span>
+                                        <%= link_to @options["previous"]["title"], "/#{@options["previous"]["metadata"]}" %>
+                                    </a>
+                                </div>
+                              <% end %>
+                              <% if @options["next"] %>
+                                <div class="entry__next">
 
-<p>
-  <strong>Highlight:</strong>
-  <%= @article.highlight %>
-</p>
+                                    <a href="#0" rel="next">
+                                        <span>Proximo</span>
+                                        <%= link_to @options["next"]["title"], "/#{@options["next"]["metadata"]}" %>
+                                    </a>
+                                </div>
+                              <% end %>
+                          </div>
+                      </div> 
+                    <% end %>
+                </article>
+                <%= render template: "comments/index" %>
+            </main>
 
-<p>
-  <strong>User:</strong>
-  <%= @article.admin %>
-</p>
-
-<p>
-  <strong>Click count:</strong>
-  <%= @article.click_count %>
-</p>
-
-<%= link_to "Edit", edit_article_path(@article) %> |
-<%= link_to "Back", articles_path %>
+        </div> 

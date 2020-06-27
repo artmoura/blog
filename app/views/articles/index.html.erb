@@ -16,7 +16,7 @@
                   <div class="entry__text">
                       <div class="entry__header">
 
-                          <h2 class="entry__title"><%= link_to article.title, "/#{article.metadata}" %></h2>
+                          <h2 class="entry__title"><%= link_to article.title, "/#{article.category.name}/#{article.metadata}" %></h2>
                           <div class="entry__meta">
                               <span class="entry__meta-cat">
                                   <%= article.category_id %>
@@ -32,7 +32,7 @@
                         <%= raw article.highlight %>
                       </div>
                       <div class="entry__excerpt max-length">
-                        <%= link_to "Ver mais", "/#{article.metadata}" %>
+                        <%= link_to "Ver mais", "/#{article.category.name}/#{article.metadata}" %>
                       </div>
                   </div>
               </article>
