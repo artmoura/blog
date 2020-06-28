@@ -2,11 +2,12 @@ class Article < ApplicationRecord
   belongs_to :admin, optional: true
   belongs_to :category
   has_many :comments
-  mount_uploader :highlight_image, ImageUploader
+  mount_uploader :image, ImageUploader
+  validates_presence_of :content, :title
   before_validation :generate_metadata
   enum status: [:escrevendo, :publicado]
-  # has_rich_text :content
-  # has_rich_text :highlight
+  has_rich_text :content
+  has_rich_text :highlight
 
   def default_values
   end

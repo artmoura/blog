@@ -1,5 +1,8 @@
 {
   "name": "blog",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/actiontext": "^6.0.0-beta1",
+    "trix": "^1.0.0"
+  }
 }

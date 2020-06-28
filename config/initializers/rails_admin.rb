@@ -20,6 +20,25 @@ RailsAdmin.config do |config|
       field :created_at
       field :updated_at
     end
+    edit do
+      field :category
+      field :title
+      field :image
+      field :highlight, :wysihtml5 do
+        config_options toolbar: { fa: true },
+                       html: true,
+                       parserRules: { tags: { p: 1 } }
+      end
+      field :content, :wysihtml5 do
+        config_options toolbar: { fa: true },
+                       html: true,
+                       parserRules: { tags: { p: 1 } }
+      end
+      field :status
+      field :published_at
+      field :admin
+      field :tags
+    end
   end
 
   config.actions do

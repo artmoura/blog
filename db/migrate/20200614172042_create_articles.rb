@@ -3,7 +3,7 @@ class CreateArticles < ActiveRecord::Migration[5.2]
     create_table :articles do |t|
       t.string :title, index: true
       t.text :content
-      t.string :highlight_image
+      t.string :image
       t.text :highlight
       t.integer :status, index: true
       t.string :metadata

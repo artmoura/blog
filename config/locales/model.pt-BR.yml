@@ -27,7 +27,7 @@ pt-BR:
       article:
         title: Título
         content: Conteúdo
-        highlight_image: Imagem
+        image: Imagem
         highlight: Chamada
         status: Status
         metadata: Metadata

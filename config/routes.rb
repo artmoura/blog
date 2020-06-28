@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :articles, only: [:index]
   root to: "articles#index"
   get "/:category_name", to: "articles#index"
-  get "/:category_name/:metadata", to: "articles#show"
+  get "/:category_name/:id", to: "articles#show"
 end

@@ -17,7 +17,7 @@ class ArticlesTest < ApplicationSystemTestCase
     fill_in "Click count", with: @article.click_count
     fill_in "Content", with: @article.content
     fill_in "Highlight", with: @article.highlight
-    fill_in "Highlight image", with: @article.highlight_image
+    fill_in "Highlight image", with: @article.image
     fill_in "Title", with: @article.title
     fill_in "User", with: @article.user_id
     click_on "Create Article"
@@ -33,7 +33,7 @@ class ArticlesTest < ApplicationSystemTestCase
     fill_in "Click count", with: @article.click_count
     fill_in "Content", with: @article.content
     fill_in "Highlight", with: @article.highlight
-    fill_in "Highlight image", with: @article.highlight_image
+    fill_in "Highlight image", with: @article.image
     fill_in "Title", with: @article.title
     fill_in "User", with: @article.user_id
     click_on "Update Article"

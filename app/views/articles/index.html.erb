@@ -5,10 +5,10 @@
             <div class="grid-sizer"></div>
             <% @articles.each do |article| %>
               <article class="masonry__brick entry format-standard ">
-                  <% if article.highlight_image.url %>
+                  <% if article.image.url %>
                     <div class="entry__thumb">
                         <a href="single-standard.html" class="entry__thumb-link">
-                            <%= image_tag article.highlight_image_url %> 
+                            <%= image_tag article.image_url %> 
                         </a>
                     </div>
                   <% end %>
@@ -16,7 +16,7 @@
                   <div class="entry__text">
                       <div class="entry__header">
 
-                          <h2 class="entry__title"><%= link_to article.title, "/#{article.category.name}/#{article.metadata}" %></h2>
+                          <h2 class="entry__title"><%= link_to article.title, "/#{article.category.name}/#{article.id}" %></h2>
                           <div class="entry__meta">
                               <span class="entry__meta-cat">
                                   <%= article.category_id %>
@@ -32,7 +32,7 @@
                         <%= raw article.highlight %>
                       </div>
                       <div class="entry__excerpt max-length">
-                        <%= link_to "Ver mais", "/#{article.category.name}/#{article.metadata}" %>
+                        <%= link_to "Ver mais", "/#{article.category.name}/#{article.id}" %>
                       </div>
                   </div>
               </article>

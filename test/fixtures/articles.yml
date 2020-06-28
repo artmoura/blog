@@ -3,7 +3,7 @@
 one:
   title: MyString
   content: MyText
-  highlight_image: MyString
+  image: MyString
   highlight: MyText
   user: one
   click_count: 1
@@ -11,7 +11,7 @@ one:
 two:
   title: MyString
   content: MyText
-  highlight_image: MyString
+  image: MyString
   highlight: MyText
   user: two
   click_count: 1

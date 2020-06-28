@@ -5,11 +5,15 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @articles = Category.find_by(name: params[:category_name]).articles.order(published_at: :asc)
-    @article = @articles.find_by(metadata: params[:metadata])
-    @options = {
-      next: @articles[@articles.index(@article) + 1],
-      previous: @articles[@articles.index(@article) - 1],
-    }
+    begin
+      @articles = Category.find_by(name: params[:category_name]).articles.order(published_at: :asc)
+      @article = @articles.find_by(id: params[:id])
+      @options = {
+        next: @articles[@articles.index(@article) + 1],
+        previous: @articles[@articles.index(@article) - 1],
+      }
+    rescue
+      redirect_to "/", notice: "Erro ao abrir esse artigo"
+    end
   end
 end

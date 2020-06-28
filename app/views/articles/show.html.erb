@@ -3,10 +3,10 @@
             <main class="row content__page">
                 
                 <article class="column large-full entry format-standard">
-                    <% if @article.highlight_image&.url %>
+                    <% if @article.image&.url %>
                       <div class="media-wrap entry__media">
                           <div class="entry__post-thumb">
-                              <img src=<%= @article.highlight_image&.url %> sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                              <img src=<%= @article.image&.url %> sizes="(max-width: 2000px) 100vw, 2000px" alt="">
                           </div>
                       </div>
                     <% end %>

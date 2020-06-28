@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ArticlesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,8 +16,8 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create article" do
-    assert_difference('Article.count') do
-      post articles_url, params: { article: { click_count: @article.click_count, content: @article.content, highlight: @article.highlight, highlight_image: @article.highlight_image, title: @article.title, user_id: @article.user_id } }
+    assert_difference("Article.count") do
+      post articles_url, params: { article: { click_count: @article.click_count, content: @article.content, highlight: @article.highlight, image: @article.image, title: @article.title, user_id: @article.user_id } }
     end
 
     assert_redirected_to article_url(Article.last)
@@ -34,12 +34,12 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update article" do
-    patch article_url(@article), params: { article: { click_count: @article.click_count, content: @article.content, highlight: @article.highlight, highlight_image: @article.highlight_image, title: @article.title, user_id: @article.user_id } }
+    patch article_url(@article), params: { article: { click_count: @article.click_count, content: @article.content, highlight: @article.highlight, image: @article.image, title: @article.title, user_id: @article.user_id } }
     assert_redirected_to article_url(@article)
   end
 
   test "should destroy article" do
-    assert_difference('Article.count', -1) do
+    assert_difference("Article.count", -1) do
       delete article_url(@article)
     end
 

@@ -29,7 +29,7 @@ group :test do
   gem "chromedriver-helper"
 end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "rails_admin"
+gem "rails_admin", "~> 2.0"
 gem "devise"
 gem "rails_admin_rollincode"
 gem "carrierwave", "~> 2.0"
