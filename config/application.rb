@@ -11,6 +11,7 @@ module Blog
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    config.assets.initialize_on_precompile = false
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif *.svg)
     config.assets.paths += Dir["#{Rails.root}/vendor/assets/*"]
 
